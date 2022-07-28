@@ -109,20 +109,9 @@ function CreateExtendedPlayer(playerId, identifier, group, accounts, inventory, 
 	end
 
 	function self.getInventory(minimal)
-		if minimal then
-			local minimalInventory = {}
-
-			for k, v in ipairs(self.inventory) do
-				if v.count > 0 then
-					minimalInventory[v.name] = v.count
-				end
-			end
-
-			return minimalInventory
-		end
-
-		return self.inventory
-	end
+    local Inventory = exports['qs-core']:GetInventory(self.source)
+    return Inventory
+end
 
 	function self.getJob()
 		return self.job
